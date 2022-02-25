@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <title>President</title>
+ 
+<body>
+<h1>President guess by Srikanth Reddy Varala</h1>
+<h2>Getting input</h2>
+
+<form>
+    <label for="president_name">Enter the secret president name</label>
+    <input type ="password" value = "George Washington" id="president_name" name="president_name"> <br>
+
+    <label for="guess_name">Guess the president</label>
+    <input type ="text" id="guess_name" name="guess_name" autofocus> <br>
+
+    <input type="button" onclick="checkGuess()" value="check the value">
+
+    
+</form>
+
+
+<div id="result"></div>
+
+<script> 
+var correct = 0;
+var wrong = 0;
+
+function checkGuess(){
+    
+ 
+    president_name = document.getElementById("president_name").value
+    guess_name = document.getElementById("guess_name").value
+
+    out = document.getElementById("result")
+    if (president_name == guess_name) {
+        
+        alert("You got it right ");
+
+        correct = correct+ 1;
+        
+    }
+    else {
+        wrong = wrong+ 1;
+        alert("Wrong President");
+        
+    }
+    out.innerHTML= "correct count : "+correct +" wrong count : "+wrong;
+}
+
+</script>
+
+</body>
+</html> 
