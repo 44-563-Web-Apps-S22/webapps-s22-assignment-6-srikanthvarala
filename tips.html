@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+ <head>
+     <title>
+         Computes Page
+     </title>
+ </head>
+<body>
+
+<h2>Srikanth reddy Varala Computes tips</h2>
+
+<form>
+    <label for="check_amount">Enter a check amount</label>
+    <input type ="number" id="check_amount" name="check_amount" value=20 style="margin-left: 5px;"><br><br>
+
+    <label for="tip">Enter tip increase</label>
+    <input type ="number" id="tip" name="tip" value=0.05 style="margin-left : 30px;"> <br><br>
+
+    <input type="button" onclick="tips()" value="Find tips" style="margin-left: 90px;">
+</form>
+<p id="result" style="margin-left: 30px;">This text will be replaced </p><br>
+
+
+
+<script> 
+function tips()
+{
+    console.log("Getting the tips results")
+    check = document.getElementById("check_amount").value 
+    tip = document.getElementById("tip").value
+    result = " "
+    result = "Tip amount by increase of "+ tip + "are:"
+    s = check * 0.1
+    result += s
+    for(let i=0;i<9;i++)
+    {
+        tot = s+(check*tip);
+        result +=","+Math.round(tot*10)/10
+        s = Math.round(tot*10)/10
+    } 
+    document.getElementById("result").innerHTML = result
+
+}
+
+</script>
+
+</body>
+</html> 
