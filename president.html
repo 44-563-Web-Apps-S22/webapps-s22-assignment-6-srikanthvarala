@@ -32,6 +32,7 @@ function checkGuess(){
     guess_name = document.getElementById("guess_name").value
 
     out = document.getElementById("result")
+    if (wrong < 3) {
     if (president_name == guess_name) {
         
         alert("You got it right ");
@@ -45,8 +46,14 @@ function checkGuess(){
         
     }
     out.innerHTML= "correct count : "+correct +" wrong count : "+wrong;
-}
 
+} else {
+    document.getElementById("result").onclick = lock();
+}
+}
+function lock(){
+    alert("Sorry, game over");
+}
 </script>
 <div>
     <img id = "myimg" src = "anhinga.jpg" style="width: 100px; height: 100px;" alt = "anhinga" onclick="swapImage()"/>
