@@ -7,27 +7,41 @@
  </head>
 <body>
 
-<h2>Srikanth reddy Varala Computes tips</h2>
+<h2>Srikanth Reddy Varala Computes tips</h2>
 
 <form>
-    <label for="check_amount">Enter a check amount</label>
-    <input type ="number" id="check_amount" name="check_amount" value=20 style="margin-left: 5px;"><br><br>
+    <label for="check">Enter a check amount</label>
+    <input type ="number" id="check" name="check" value=20 style="margin-left: 5px;"><br><br>
 
-    <label for="tip">Enter tip increase</label>
-    <input type ="number" id="tip" name="tip" value=0.05 style="margin-left : 30px;"> <br><br>
+    <label for="form1_tip">Enter tip increase</label>
+    <input type ="number" id="form1_tip" name="form1_tip" value=0.05 style="margin-left : 30px;"> <br><br>
 
     <input type="button" onclick="tips()" value="Find tips" style="margin-left: 90px;">
 </form>
 <p id="result" style="margin-left: 30px;">This text will be replaced </p><br>
 
 
+<form>
+        <input type="radio" id="r1" name="color" value="times" onclick="chooseOp()"   
+          checked >
+        <label for="rg1_times">*</label></br>
+      
+        <input type="radio" id="r2" name="color" 
+           value="divide" onclick="chooseOp()">
+        <label for="rg1_divide">/</label></br>
+      
+        <input type="radio" id="r3" name="color"   
+           value="exponent" onclick="chooseOp()">
+        <label for="rg1_exponent">**</label></br>
+</form>
+<p id="radioResults">This will display the radio results</p>
 
 <script> 
 function tips()
 {
     console.log("Getting the tips results")
-    check = document.getElementById("check_amount").value 
-    tip = document.getElementById("tip").value
+    check = document.getElementById("check").value 
+    tip = document.getElementById("form1_tip").value
     result = " "
     result = "Tip amount by increase of "+ tip + "are:"
     s = check * 0.1
@@ -39,6 +53,27 @@ function tips()
         s = Math.round(tot*10)/10
     } 
     document.getElementById("result").innerHTML = result
+
+}
+
+function chooseOp(){
+    var check = document.getElementById("check").value 
+    var tip = document.getElementById("form1_tip").value
+    expo = document.getElementById("r3").checked
+    time = document.getElementById("r1")
+    divide = document.getElementById("r2")
+
+    if(expo)
+    {
+        document.getElementById("radioResults").innerHTML = "(amount ** tip) value is : " + check ** tip 
+    }
+    else if(time.checked)
+    {
+        document.getElementById("radioResults").innerHTML = "(amount * tip) value is :" + check * tip
+    }
+    else{
+        document.getElementById("radioResults").innerHTML = "(amount / tip) value is : " + check / tip 
+    }
 
 }
 
